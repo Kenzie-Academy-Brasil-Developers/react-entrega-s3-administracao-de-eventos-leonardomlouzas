@@ -1,146 +1,51 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 header {
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 html {
+  background-color: rgb(245, 245, 245);
   box-sizing: border-box;
   height: 100vh;
+}
+
+button {
+  border: 0;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 10px;
+}
+button:hover {
+  cursor: pointer;
+  filter: brightness(150%);
 }
 
 ul {
   list-style-type: none;
 }
-
 header div {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+header h3,
+h1 {
+  margin: 15px;
+}
+
+header h3:hover,
+h1:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 body {

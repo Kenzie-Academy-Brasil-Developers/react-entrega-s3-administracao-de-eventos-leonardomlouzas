@@ -8,6 +8,7 @@ import Formatura from "./pages/Formatura";
 
 import { Container } from "./styles";
 import './reset.css';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const history = useHistory();
@@ -25,28 +26,28 @@ function App() {
   }
   return (
     <div className="App">
+      <div><Toaster /></div>
       <Modal modalShow={modalShow} handleModal={handleModal} item={itemToAdd} />
       <header className="App-header">
         <h1 onClick={() => history.push("/")}>Inicio</h1>
         <div>
-          <h2 onClick={() => history.push("/casamento")}>casamento</h2>
+          <h3 onClick={() => history.push("/casamento")}>casamento</h3>
           <h3 onClick={() => history.push("/confraternizacao")}>confraternizacao</h3>
-          <h4 onClick={() => history.push("/formatura")}>formatura</h4>
+          <h3 onClick={() => history.push("/formatura")}>formatura</h3>
         </div>
       </header>
-      <hr></hr>
       <Switch>
         <Route exact path="/">
           <Container>
-            <h1>Casamento</h1>
             <ul>
               {beerList.map((item, index) => (
-                <li ket={index}>
-                  <img src={item.image_url} alt={item.name} />
-                  <h3>{item.name}</h3>
-                  <p>{item.first_brewed}</p>
+                <li key={index}>
+                  <div>
+                    <img src={item.image_url} alt={item.name} />
+                  </div>
+                  <h3>{item.name} - {item.volume.value} L</h3>
                   <p>{item.description}</p>
-                  <p>{item.volume.value}</p>
+                  <h5>Fabricado em {item.first_brewed}</h5>
                   <button onClick={() => handleClick(item)}>Adicionar</button>
                 </li>
               ))}

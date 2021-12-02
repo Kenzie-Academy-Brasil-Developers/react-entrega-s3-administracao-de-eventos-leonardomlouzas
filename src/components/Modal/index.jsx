@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { BeerListContext } from "../../providers/beerList";
 import { Background, Container } from "./styles";
 
@@ -9,14 +10,12 @@ export default function Modal({ modalShow, handleModal, item }) {
   function handleClick(bebida, where) {
     if (where === 1) {
       addToCasamento(bebida);
-      console.log("added to wedding");
     } else if (where === 2) {
       addToConfraternizacao(bebida);
-      console.log("added to confr");
     } else {
       addToFormatura(bebida);
-      console.log("Added to formature");
     }
+    toast.success("Bebida adicionada!");
     handleModal();
   }
   return (
@@ -25,13 +24,16 @@ export default function Modal({ modalShow, handleModal, item }) {
         <Background>
           <Container>
             <div>
-              <h2>{item.name}</h2>
+              <h3>
+                {item.name} <button onClick={handleModal}>Cancelar</button>
+              </h3>
+              <hr></hr>
+              <h4>Adicionar:</h4>
               <button onClick={() => handleClick(item, 1)}>Ao Casamento</button>
               <button onClick={() => handleClick(item, 2)}>
                 À Confraternização
               </button>
               <button onClick={() => handleClick(item, 3)}>À Formatura</button>
-              <button onClick={handleModal}>Cancelar</button>
             </div>
           </Container>
         </Background>

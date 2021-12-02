@@ -1,3 +1,4 @@
+import { Container } from "./styles";
 import { useContext } from "react";
 import { BeerListContext } from "../../providers/beerList";
 
@@ -6,23 +7,26 @@ export default function Confraternização() {
     useContext(BeerListContext);
 
   return (
-    <>
-      <h1>Casamento</h1>
+    <Container>
+      <h1>Confraternização</h1>
       <ul>
         {beerConfraternizacao.map((item, index) => (
-          <li ket={index}>
-            <img src={item.image_url} alt={item.name} />
-            <h3>{item.name}</h3>
-            <p>{item.first_brewed}</p>
+          <li key={index}>
+            <div>
+              <img src={item.image_url} alt={item.name} />
+            </div>
+            <h3>
+              {item.name} - {item.volume.value} L
+            </h3>
             <p>{item.description}</p>
-            <p>{item.volume.value}</p>
+            <h5>Fabricado em {item.first_brewed}</h5>
             <button onClick={() => removeFromConfraternizacao(item)}>
               Remover
             </button>
           </li>
         ))}
       </ul>
-      {beerConfraternizacao.length === 0 ? <h3>Não há bebidas.</h3> : null}
-    </>
+      {beerConfraternizacao.length === 0 ? <p>Não há bebidas.</p> : null}
+    </Container>
   );
 }
